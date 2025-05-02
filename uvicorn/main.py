@@ -465,7 +465,7 @@ def main(
         factory=factory,
         app_dir=app_dir,
         h11_max_incomplete_event_size=h11_max_incomplete_event_size,
-        before_graceful_exit=before_graceful_exit,
+        before_graceful_exit_hook=before_graceful_exit,
     )
 
 
