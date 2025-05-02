@@ -281,7 +281,7 @@ class Config:
         self.reload_dirs_excludes: list[Path] = []
         self.reload_includes: list[str] = []
         self.reload_excludes: list[str] = []
-
+        self.before_graceful_exit_hook = before_graceful_exit_hook
         if (reload_dirs or reload_includes or reload_excludes) and not self.should_reload:
             logger.warning(
                 "Current configuration will not reload as not all conditions are met, please refer to documentation."
