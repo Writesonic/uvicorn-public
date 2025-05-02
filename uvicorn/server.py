@@ -261,12 +261,14 @@ class Server:
         return False
 
     async def shutdown(self, sockets: list[socket.socket] | None = None) -> None:
-        logger.info("Shutting down")
 
         if callable(self.config.before_graceful_exit_hook):
             f = self.config.before_graceful_exit_hook()
             if inspect.isawaitable(f):
                 await f
+        
+        logger.info("Shutting down")
+
         # Stop accepting new connections.
         for server in self.servers:
             server.close()
